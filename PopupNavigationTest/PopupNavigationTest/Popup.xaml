@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           
+        
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="PopupNavigationTest.Popup" CloseWhenBackgroundIsClicked="True" BackgroundColor="#59000000">
+  <StackLayout VerticalOptions="Start" HorizontalOptions="End"  WidthRequest="250" HeightRequest="400" Margin="0, 55, 10, 0" BackgroundColor="White">
+    <StackLayout Orientation="Horizontal">
+      <Label Text="{Binding CurrentCategory, StringFormat='Selected category is: {0}'}" TextColor="Black"  Margin="3, 3, 5, 0" HorizontalTextAlignment="End" LineBreakMode="TailTruncation"/>
+    </StackLayout>
+    <ListView x:Name="listView" ItemsSource="{Binding Categories}"  SeparatorVisibility="Default" SeparatorColor="White"  SelectedItem="{Binding CurrentCategory, Mode=TwoWay}">
+      <ListView.Header>
+        <StackLayout Orientation="Horizontal"  BindingContext="{x:Reference Name=listView}">
+          <Label Text="{Binding SelectedItem, StringFormat='SelectedItem is: {0}'}" TextColor="Black"  Margin="3, 3, 5, 0" HorizontalTextAlignment="End" LineBreakMode="TailTruncation"/>
+        </StackLayout>
+
+      </ListView.Header>
+
+    </ListView>
+  </StackLayout>
+</pages:PopupPage>
